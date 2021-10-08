@@ -1,3 +1,4 @@
+//dump of product details in json which will be pushed to db
 const products = [
     {
       name: "PlayStation 5",

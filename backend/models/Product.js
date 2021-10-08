@@ -1,5 +1,6 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose')    //importing mongoose
 
+//database schema
 const productSchema = new mongoose.Schema({
     name:{
         type: String,
@@ -23,6 +24,7 @@ const productSchema = new mongoose.Schema({
     }
 })
 
+//creating a model using schema
 const Product = mongoose.model('product', productSchema)
 
-module.exports = Product
+module.exports = Product    //exporting model
