@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import MenuIcon from '@mui/icons-material/Menu';
 
-const Navbar = () => {
+const Navbar = ({toggleStatus}) => {
     return (
         <nav className="navbar">
             {/* logo */}
@@ -32,8 +32,8 @@ const Navbar = () => {
             </ul>
 
             {/* hamburger menu */}
-            <div className="hamburger__menu">
-                <MenuIcon />
+            <div className="hamburger__menu" onClick={()=>toggleStatus(true)}>
+                <MenuIcon className="hamburgerlogo__icon" />
             </div>
         </nav>
     )

@@ -1,3 +1,5 @@
+import React, {useState} from 'react'
+
 import './App.css';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 
@@ -13,15 +15,18 @@ import Backdrop from './components/backdrop/Backdrop';
 
 
 function App() {
+
+  const [sideToggle,setSideToggle] = useState(false)
+
   return (
     <Router>
       {/* Navbar */}
-      <Navbar />
+      <Navbar toggleStatus={setSideToggle} />
+       {/* backDrop */}
+       <Backdrop show={sideToggle} toggleStatus={setSideToggle} />
       {/* sideDrawer */}
-      <SideDrawer />
-      {/* backDrop */}
-      <Backdrop />
-      <main>
+      <SideDrawer show={sideToggle} toggleStatus={setSideToggle} />
+     <main>
         <Switch>
           {/* homeScreen */}
           <Route exact path="/" component={HomeScreen} />

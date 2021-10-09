@@ -1,8 +1,9 @@
 import React from 'react'
+import "./backdrop.css"
 
-const Backdrop = () => {
+const Backdrop = ({show, toggleStatus}) => {
     return (
-        <div>
+       show && <div className="backdrop" onClick={()=>toggleStatus(false)}>
             
         </div>
     )
