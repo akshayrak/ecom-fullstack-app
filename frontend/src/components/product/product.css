@@ -51,3 +51,21 @@
     color: #f4f4f4;
     background: black;
 }
+
+@media(max-width:1250px){
+    .product{
+        width: 320px;
+    }
+}
+
+@media(max-width:960px){
+    .product{
+        width: 320px;
+    }
+}
+
+@media(max-width:660px){
+    .product{
+        width: 360px;
+    }
+}
