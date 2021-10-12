@@ -2,20 +2,20 @@ import React from 'react'
 import "./cartItem.css"
 import {Link} from 'react-router-dom'
 import DeleteIcon from '@mui/icons-material/Delete';
-const CartItem = () => {
+const CartItem = ({item, qtyChangeHandler, removeFromCartHandler}) => {
     return (
         <div className="cartItem">
             <div className="cartitem__image">
-                <img src="https://images.unsplash.com/photo-1564424224827-cd24b8915874?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80" alt="" />
+                <img src={item.imageUrl} alt={item.name} />
             </div>
-            <Link to={`/product/${111}`} className="cartitem__name">
-                <p>Product 1</p>
+            <Link to={`/product/${item.product}`} className="cartitem__name">
+                <p>{item.name}</p>
             </Link>
-            <p className="cartitem__price">499.99</p>
-            <select name="" id="" className="cartitem__select">
-                <option value="1">1</option>
+            <p className="cartitem__price">${`${item.price}x${item.qty}=$${item.price*item.qty}`}</p>
+            <select value={item.qty} onChange={(e)=>qtyChangeHandler(item.product, e.target.value)} name="qty" id="qty" className="cartitem__select">
+                {Array.apply(null,{length:item.countInStock}).map((x,i)=><option key={i} value={i+1}>{i+1}</option>)}
             </select>
-            <button className="cartitem__deleteBtn">
+            <button className="cartitem__deleteBtn" onClick={()=>removeFromCartHandler(item.product)}>
                 <DeleteIcon />
             </button>
         </div>
