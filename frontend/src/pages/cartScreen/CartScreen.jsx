@@ -1,6 +1,5 @@
 import CartItem from "../../components/cartItem/CartItem"
 import "./cartScreen.css"
-import {useEffect} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {Link} from 'react-router-dom'
 import { addToCart, removeFromCart } from "../../redux/actions/cartActions"
